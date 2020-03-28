@@ -1,0 +1,26 @@
+/*
+.borderless .ui-datatable thead th,
+.borderless .ui-datatable tbody,
+.borderless .ui-datatable tbody tr,
+.borderless .ui-datatable tbody td {
+    border: none !important;
+    display: none !important;
+}
+
+.ui-datatable.borderless .ui-datatable-data tr,
+.ui-datatable.borderless .ui-datatable-data-empty tr,
+.ui-datatable.borderless .ui-datatable-data td,
+.ui-datatable.borderless .ui-datatable-data-empty td
+.ui-datatable.borderless .ui-datatable-data th {
+    border-style: none;
+    padding: 10;
+}
+
+
+.ui-datatable.borderless thead th,
+.ui-datatable.borderless tbody,
+.ui-datatable.borderless tbody tr,
+.ui-datatable.borderless tbody td {
+    border-style: none;
+}
+*/
