@@ -26,6 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.joinfaces:jsf-spring-boot-starter'
     implementation 'org.joinfaces:primefaces-spring-boot-starter'        
+    //implementation 'org.joinfaces:butterfaces-spring-boot-starter'        
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     //runtimeOnly 'org.postgresql:postgresql'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
