@@ -6,116 +6,39 @@
 
 <h:head>
     <title>SOGIS • Suche</title>
-    
+   
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>  
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"></meta>
+	<meta name="apple-mobile-web-app-capable" content="yes"></meta>
+     
     <h:outputStylesheet name="css/primeflex.css"/>
     <h:outputStylesheet name="css/app.css"/>
-   
 </h:head>
 
 
 <!-- https://github.com/edigonzales/ilivalidator-web-service-jsf/blob/master/src/main/resources/META-INF/resources/fileupload.xhtml -->
 
 <h:body>
-    <h:form id="helloworld-form">
-
-        <p:panel header="PrimeFaces Hello World Example">
-            <h:panelGrid columns="2" cellpadding="4">
-                <h:outputText value="First Name: " />
-                <p:inputText id="first-name" value="#{helloWorldBacking.firstName}" />
-
-                <h:outputText value="Last Name: " />
-                <p:inputText id="last-name" value="#{helloWorldBacking.lastName}" />
-
-                <p:commandButton id="submit" value="Submit" update="greeting-panel"
-                    oncomplete="PF('greetingDialog').show()" />
-            </h:panelGrid>
-        </p:panel>
-
-        <p:dialog header="Greeting" widgetVar="greetingDialog" modal="true"
-            resizable="false">
-            <h:panelGrid id="greeting-panel" columns="1" cellpadding="4">
-                <h:outputText value="#{helloWorldBacking.showGreeting()}" />
-            </h:panelGrid>
-        </p:dialog>
-
-    </h:form>
-
-    <div class="container">
-        <div class="p-grid p-align-center container">
-            <div class="p-col">
-                <div class="box"></div>
-            </div>
-            <div class="p-col">
-                <div class="box">
-<h:form>    
-    <p:inputText style="width:80%;"/>
-</h:form>                
-                <!--
-                    <h:form enctype="multipart/form-data">
-                        <p:growl id="messages" showDetail="true" />
-
-                        <p:fileUpload value="#{helloWorldBacking.showGreeting()}" mode="simple"
-                            skinSimple="true" />
-
-                        <br />
-                        <br />
-
-                        <p:commandButton id="uploadButton" value="Submit" ajax="false"
-                            action="#{helloWorldBacking.showGreeting()}" disabled="#{helloWorldBacking.showGreeting()}" />
-                    </h:form>
-                  -->
-                </div>
-            </div>
-            <div class="p-col">
-                <div class="box"></div>
-            </div>
-        </div>
-    </div>
-
-
-	<h3>Horizontal Alignment - Center</h3>
-	<div class="p-grid p-align-center vertical-container">
-	    <div class="p-col">
-	        <div class="box">4</div>
-	    </div>
-	    <div class="p-col">
-	        <div class="box">4</div>
-	    </div>
-	    <div class="p-col">
-	        <div class="box">4</div>
-	    </div>
-	</div>
-
-	<h3>12 Column Grid</h3>
-	<div class="p-grid">
-		<div class="p-col-4">
-			<div class="box">4</div>
-		</div>
-		<div class="p-col">
-			<div class="box">1</div>
-		</div>
-		<div class="p-col">
-			<div class="box">1</div>
-		</div>
-		<div class="p-col">
-			<div class="box">1</div>
-		</div>
-		<div class="p-col">
-			<div class="box">1</div>
-		</div>
-		<div class="p-col">
-			<div class="box">1</div>
-		</div>
-		<div class="p-col">
-			<div class="box">1</div>
-		</div>
-		<div class="p-col">
-			<div class="box">1</div>
-		</div>
-		<div class="p-col">
-			<div class="box">1</div>
+	<div class="container">
+		<div class="p-grid p-align-center container">
+			<div class="p-col-2 p-md-2 p-lg-3">
+				<div class="box"></div>
+			</div>
+			<div class="p-col-8 p-md-8 p-lg-6">
+				<div class="box">
+					<h:form>
+					  <!-- <p:commandButton value="Submit" icon="pi pi-check" style="margin: 10px;" /> -->
+						<p:autoComplete id="acSimple" placeholder="Suche" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" style="width:90%;" inputStyle = "width: 100%">
+							<p:ajax event="itemSelect" listener="#{autoCompleteView.onItemSelect}"  />
+						</p:autoComplete>					  
+					</h:form>
+				</div>
+			</div>
+			<div class="p-col-2 p-md-2 p-lg-3">
+				<div class="box"></div>
+			</div>
 		</div>
 	</div>
-
 </h:body>
 </html>

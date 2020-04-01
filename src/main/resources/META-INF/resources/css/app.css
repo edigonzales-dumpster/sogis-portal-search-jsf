@@ -4,8 +4,9 @@ html, body {
     position: relative;
     margin: 0 auto;
     overflow: hidden;
-    font-family: "Open Sans","Helvetica Neue",sans-serif;
+    /*font-family: "Open Sans","Helvetica Neue",sans-serif !important;*/
 }
+
 .container {
     height: 100%;
     background: #FFFFFF;
@@ -44,6 +45,25 @@ html, body {
 .nested-grid .p-col-4 {
     padding-bottom: 1em;
 }
+
+/*
+.ui-inputfield.someClass {
+	font-size: 16px !important;
+	font-family: Roboto !important;
+	color: #260101;
+	border: 1px solid #c4c0c0;
+	height: 48px;
+}
+
+.ui-inputfield.ui-state-hover {
+	border: 1px solid #260101 !important;
+}
+
+.ui-inputfield.ui-state-focus {
+	border: 2px solid #260101 !important;
+}
+*/
+
 
 /*
 .borderless .ui-datatable thead th,

@@ -7,7 +7,7 @@ plugins {
 
 group = 'ch.so.agi.search'
 
-sourceCompatibility = '11'
+sourceCompatibility = '8'
 
 configurations {
     developmentOnly
