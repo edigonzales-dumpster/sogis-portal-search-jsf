@@ -9,6 +9,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -55,9 +56,11 @@ public class AutoCompleteView {
     private ThemeService service;
      
     public List<String> completeText(String query) throws IOException {
+        logger.info("completeText");
+        
         List<String> results = new ArrayList<>();
         for(int i = 0; i < 10; i++) {
-            results.add(query + i);
+            //results.add(query + i);
         }
         
         logger.info("completeText");
@@ -74,7 +77,25 @@ public class AutoCompleteView {
         Iterator<JsonNode> it = resultArray.iterator();
         while(it.hasNext()) {            
 			JsonNode node = it.next();
-			logger.info(node.get("feature").get("dataproduct_id").toString());
+			if (node.get("feature") != null) {
+	            String dataproductId = node.get("feature").get("dataproduct_id").asText();
+	            logger.info("dataproductId {}", dataproductId);
+	            
+                logger.info("query {}", query);
+                	            
+                String display = node.get("feature").get("display").asText();
+                logger.info("display {}", display);
+                
+                display = unaccent(display).toLowerCase();
+                logger.info("display normalized {}", display);
+
+	            results.add(display);
+	            
+			} else if (node.get("dataproduct") != null) {
+                logger.info(node.get("dataproduct").get("dataproduct_id").toString());
+			}
+			
+			logger.info("--------------");
         }
 
 
@@ -216,4 +237,10 @@ public class AutoCompleteView {
     public char getThemeGroup(Theme theme) {
         return theme.getDisplayName().charAt(0);
     }
+    
+    public static String unaccent(String src) {
+        return Normalizer
+                .normalize(src, Normalizer.Form.NFD)
+                .replaceAll("[^\\p{ASCII}]", "");
+    }    
 }

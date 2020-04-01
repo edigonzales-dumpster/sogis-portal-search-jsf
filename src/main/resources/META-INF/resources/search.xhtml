@@ -29,7 +29,7 @@
 				<div class="box">
 					<h:form>
 					  <!-- <p:commandButton value="Submit" icon="pi pi-check" style="margin: 10px;" /> -->
-						<p:autoComplete id="acSimple" placeholder="Suche" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" style="width:90%;" inputStyle = "width: 100%">
+						<p:autoComplete id="acSimple" placeholder="Suche" minQueryLength="3" maxResults="15" autoHighlight="false" forceSelection="true" autoSelection="false" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" style="width:90%;" inputStyle = "width: 100%">
 							<p:ajax event="itemSelect" listener="#{autoCompleteView.onItemSelect}"  />
 						</p:autoComplete>					  
 					</h:form>
